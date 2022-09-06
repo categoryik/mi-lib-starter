@@ -111,7 +111,7 @@ do
 	cp config.org config;
     fi
     make clean
-    make  SHELL='sh -x' CC=${CC} STD=${STD} && ${SUDO} make install || ( echo  "failed to compile " ${lib}; exit 1 )
+    make  SHELL='sh -x' CC=${CC:-gcc} STD=${STD:-c89} && ${SUDO} make install || ( echo  "failed to compile " ${lib}; exit 1 )
     cd -
   else
     echo "cannot find directory" ${lib}
